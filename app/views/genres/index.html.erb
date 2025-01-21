@@ -1,0 +1,16 @@
+<% content_for :title, "Genres (Жанры)" %>
+
+<div style="margin-top: 1.3em;">
+  <%= link_to "Главная", genres_path, class: "web_path" %> / <%= link_to "Жанры", genres_path, class: "web_path" %>
+</div>
+
+
+<h1>Genres (Жанры)</h1>
+
+<div style="margin-bottom: 1em;">
+  <% @genres.each do |genre| %>
+    <%= link_to "#{genre.genre_name}", genre, class: "text_link_genre" %>
+  <% end %>
+  <%= link_to "Добавить", new_genre_path, class: "text_link" %>
+</div>
+

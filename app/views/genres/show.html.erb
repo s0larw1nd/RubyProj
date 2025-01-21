@@ -1,0 +1,23 @@
+<div style="margin-top: 1.3em;">
+  <%= link_to "Главная", genres_path, class: "web_path" %> / <%= link_to "Жанры", genres_path, class: "web_path" %> / <%= link_to @genre.genre_name, @genre, class: "web_path" %>
+</div>
+
+<div style="display: flex; align-items: center;">
+  <h1><%= @genre.genre_name %></h1>
+
+  <%= link_to edit_genre_path(@genre), class: "btn-interact" do %>
+    <%= image_tag "edit_icon.svg", class: "icon" %>
+  <% end %>
+
+  <%= button_to @genre, method: :delete, class: "btn-interact", data: { confirm: "Вы уверены?" } do %>
+    <%= image_tag "thrash_icon.svg", class: "icon" %>
+  <% end %>
+</div>
+
+<div style='margin-top: -1em'>
+  <h2 style='color: #703030'><%= @genre.description %></h2>
+<div>
+
+<div style='margin-top: 2em'>
+  <h2>Книги</h2>
+<div>

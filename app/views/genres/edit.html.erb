@@ -1,0 +1,9 @@
+<div style="margin-top: 1.3em;">
+  <%= link_to "Главная", genres_path, class: "web_path" %> / <%= link_to "Жанры", genres_path, class: "web_path" %> / <%= link_to @genre.genre_name, @genre, class: "web_path" %> / <span class='web_path'>Изменение</span>
+</div>
+
+<% content_for :title, "Изменение жанра" %>
+
+<h1>Изменение жанра</h1>
+
+<%= render "form", genre: @genre %> 

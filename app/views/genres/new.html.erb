@@ -1,0 +1,9 @@
+<div style="margin-top: 1.3em;">
+  <%= link_to "Главная", genres_path, class: "web_path" %> / <%= link_to "Жанры", genres_path, class: "web_path" %> / <span class='web_path'>Добавление</span>
+</div>
+
+<% content_for :title, "Добавление жанра" %>
+
+<h1>Новый жанр</h1>
+
+<%= render "form", genre: @genre %>

@@ -1,0 +1,15 @@
+<%= form_with(model: genre) do |form| %>
+  <div>
+    <%= form.label 'Название', style: "display: block;color: #703030;" %>
+    <%= form.text_field :genre_name %>
+  </div>
+
+  <div>
+    <%= form.label 'Описание', style: "display: block;color: #703030;" %>
+    <%= form.textarea :description %>
+  </div>
+
+  <div>
+    <%= form.submit 'Подтвердить' %>
+  </div>
+<% end %>
