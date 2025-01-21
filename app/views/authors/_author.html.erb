@@ -1,0 +1,43 @@
+<div id="<%= dom_id author %>">
+  <% if author.photo.attached? %>
+    <%= image_tag author.photo %>
+  <% else %>
+    <%= image_tag "placeholder.svg" %>
+  <% end %>
+
+  <p>
+    <strong>First name:</strong>
+    <%= author.first_name %>
+  </p>
+
+  <p>
+    <strong>Last name:</strong>
+    <%= author.last_name %>
+  </p>
+
+  <p>
+    <strong>Patronymics:</strong>
+    <%= author.patronymics %>
+  </p>
+
+  <p>
+    <strong>Birthdate:</strong>
+    <%= author.birthdate %>
+  </p>
+
+  <p>
+    <strong>Deathdate:</strong>
+    <%= author.deathdate %>
+  </p>
+
+  <p>
+    <strong>Nationality:</strong>
+    <%= author.nationality %>
+  </p>
+
+  <p>
+    <strong>Genre:</strong>
+    <%= author.genre_id %>
+  </p>
+
+</div>

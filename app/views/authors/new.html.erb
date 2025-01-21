@@ -1,0 +1,9 @@
+<div style="margin-top: 1.3em;">
+  <%= link_to "Главная", genres_path, class: "web_path" %> / <%= link_to "Авторы", authors_path, class: "web_path" %> / <span class='web_path'>Добавление</span>
+</div>
+
+<% content_for :title, "Добавление автора" %>
+
+<h1>Новый автор</h1>
+
+<%= render "form", author: @author %>

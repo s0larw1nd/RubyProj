@@ -1,0 +1,42 @@
+<%= form_with(model: author) do |form| %>
+  <div>
+    <div>
+      <%= form.label "Имя", style: "display: block" %>
+      <%= form.text_field :first_name %>
+    </div>
+
+    <div>
+      <%= form.label "Фамилия", style: "display: block" %>
+      <%= form.text_field :last_name %>
+    </div>
+
+    <div>
+      <%= form.label "Отчество", style: "display: block" %>
+      <%= form.text_field :patronymics %>
+    </div>
+
+    <div>
+      <%= form.label "Дата рождения", style: "display: block" %>
+      <%= form.date_field :birthdate %>
+    </div>
+
+    <div>
+      <%= form.label "Дата смерти", style: "display: block" %>
+      <%= form.date_field :deathdate %>
+    </div>
+
+    <div>
+      <%= form.label "Национальность", style: "display: block" %>
+      <%= form.text_field :nationality %>
+    </div>
+
+    <div>
+      <%= form.label "Фото" %>
+      <%= form.file_field :photo %>
+    </div>
+
+    <div>
+      <%= form.submit "Добавить автора" %>
+    </div>
+  </div>
+<% end %>

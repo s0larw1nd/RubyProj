@@ -1,0 +1,31 @@
+<div style="margin-top: 1.3em;">
+  <%= link_to "Главная", genres_path, class: "web_path" %> / <%= link_to "Авторы", authors_path, class: "web_path" %> / <%= link_to "#{@author.last_name} #{@author.first_name[0]}.#{@author.patronymics[0]}.", @author, class: "web_path" %>
+</div>
+
+<div style="display:flex; margin-top: 1.5em">
+  <div style='height:auto; width:15%'>
+  <% if @author.photo.attached? %>
+    <%= image_tag @author.photo, class: "author_port" %>
+  <% else %>
+    <%= image_tag "placeholder.svg", class: "author_port" %>
+  <% end %>
+  </div>
+  <div style="margin-left:3%">
+    <h3>Фамилия: <%= @author.last_name %></h3>
+    <h3>Имя: <%= @author.first_name %></h3>
+    <h3>Отчество: <%= @author.patronymics %></h3>
+    <h3>Дата рождения: <%= @author.birthdate %></h3>
+    <% if @author.deathdate != nil %>
+      <h3>Дата смерти:<%= @author.deathdate %></h3>
+    <% end %>
+    <h3>Национальность: <%= @author.nationality %></h3>
+
+    <%= link_to "Изменить информацию", edit_author_path(@author) %>
+  </div>
+  
+  
+</div>
+
+<div>
+  <%= button_to "Удалить автора", @author, method: :delete %>
+</div>
