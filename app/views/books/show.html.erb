@@ -1,26 +1,29 @@
 <div style="margin-top: 1.3em;">
-  <%= link_to "Главная", books_path, class: "web_path" %> / <%= link_to @book.title, @author, class: "web_path" %>
+  <%= link_to "Главная", books_path, class: "web_path" %> / <%= link_to @book.title, @book, class: "web_path" %>
 </div>
 
-<div style="display:flex; margin-top: 1.5em">
-  <div style='height:auto; width:15%'>
-  <% if @book.cover.attached? %>
-    <%= image_tag @book.cover, class: "book_pcover" %>
-  <% else %>
-    <%= image_tag "placeholder.svg", class: "book_pcover" %>
-  <% end %>
+<div style="display:flex; margin-top: 1.5em;">
+  <div style='height:auto; width:15%;'>
+    <% if @book.cover.attached? %>
+      <%= image_tag @book.cover, class: "book_cover", style: "height:100%; width:100%" %>
+    <% else %>
+      <%= image_tag "book_placeholder.svg", class: "book_cover", style: "height:100%; width:100%"  %>
+    <% end %>
   </div>
-  <div style="margin-left:3%">
+  <div style="margin-left:3%;width:60%;">
     <h1><%= @book.title %></h1>
-    <h2>Автор: <%= "#{@book.author.first_name} #{@book.author.last_name} #{@book.author.patronymics}" %></h2>
+    <h2>Автор: <%= link_to "#{@book.author.first_name} #{@book.author.last_name} #{@book.author.patronymics}", @book.author, style: "color: inherit; text-decoration: inherit;" %></h2>
     <h3>Год написания: <%= @book.publication_year %> </h3>
     <h2>О книге</h2>
     <h3><%= @book.description %></h3>
-    <h2>Жанр: <%= @book.genre.genre_name %> </h2>
+    <h2>Жанр: <%= link_to @book.genre.genre_name, @book.genre, style: "color: inherit; text-decoration: inherit;" %> </h2>
     <h3>ISBN: <%= @book.isbn %> </h3>
-    <%= link_to "Изменить информацию", edit_book_path(@book) %>
+    <%= link_to "Изменить информацию", edit_book_path(@book), style: "color: inherit;" %>
+    <%= button_to "Удалить книгу", @book, method: :delete %>
   </div>
-
-  <%= link_to "Читать", read_book_path(@book) if @book.pdf_file.attached? %>
-  <%= link_to "Скачать", rails_blob_path(@book.pdf_file, disposition: "attachment") if @book.pdf_file.attached? %>
+  
+  <div style="display: flex; flex-wrap: wrap; width: 10%">
+    <%= link_to "Читать", read_book_path(@book), class: "book-btn" if @book.pdf_file.attached? %>
+    <%= link_to "Скачать", rails_blob_path(@book.pdf_file, disposition: "attachment"), class: "book-btn", style: "margin-top: -100px" if @book.pdf_file.attached? %>
+  </div>
 </div>

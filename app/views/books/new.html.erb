@@ -1,11 +1,9 @@
-<% content_for :title, "New book" %>
+<div style="margin-top: 1.3em;">
+  <%= link_to "Главная", books_path, class: "web_path" %> / <span class='web_path'>Добавление</span>
+</div>
 
-<h1>New book</h1>
+<% content_for :title, "Новая книга" %>
+
+<h1>Добавить книгу</h1>
 
 <%= render "form", book: @book %>
-
-<br>
-
-<div>
-  <%= link_to "Back to books", books_path %>
-</div>

@@ -3,10 +3,10 @@ class AuthorsController < ApplicationController
 
   def index
     @authors = Author.all
-    @genres = Genre.all
   end
 
   def show
+    @books = Book.where(author_id: @author.id)
   end
 
   def new

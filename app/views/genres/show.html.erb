@@ -19,5 +19,21 @@
 <div>
 
 <div style='margin-top: 2em'>
-  <h2>Книги</h2>
-<div>
+  <h1>Книги</h1>
+  <div style="display: flex; flex-wrap: wrap;">
+    <% @books.each do |book| %>
+      <div class="book-card">
+        <%= link_to book, style: "width: fit-content" do %>
+        <div>
+          <% if book.cover.attached? %>
+            <%= image_tag book.cover, style: "width: 200px; height: 250px" %>
+          <% else %>
+            <%= image_tag "book_placeholder.svg", style: "width: 200px; height: 250px" %>
+          <% end %>
+        </div>
+        <h1 class="book-card-info"><%= book.title %></h1>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

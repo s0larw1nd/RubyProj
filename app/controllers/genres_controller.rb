@@ -6,6 +6,7 @@ class GenresController < ApplicationController
   end
 
   def show
+    @books = Book.where(genre_id: @genre.id)
   end
 
   def new

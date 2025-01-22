@@ -17,21 +17,18 @@
       </div>
       <div class="card-content" style="width: 50%; margin-left: 3em">
         <h1 class="auth_inf"><%= author.last_name %> <%= author.first_name %></h3>
-        <% @genres.each do |genre| %>
-          
-        <% end %>
       </div>
     </div>
     <% end %>
   <% end %>
   <%= link_to new_author_path, class: "author-card", style: "text-decoration: none;" do %>
-  <div class="card" style="border-radius: 8px; padding: 16px; margin: 16px; text-align: left; display: flex;">
-    <div class="card-image">
-      <%= image_tag "plus.svg", style: "width: 100px; height: 100px; border-radius: 50%;" %>
+    <div class="card" style="border-radius: 8px; padding: 16px; margin: 16px; text-align: left; display: flex;">
+      <div class="card-image">
+        <%= image_tag "plus.svg", style: "width: 100px; height: 100px; border-radius: 50%;" %>
+      </div>
+      <div class="card-content" style="width: 50%; margin-left: 3em">
+        <h1 class="auth_inf">Добавить</h3>
+      </div>
     </div>
-    <div class="card-content" style="width: 50%; margin-left: 3em">
-      <h1 class="auth_inf">Добавить</h3>
-    </div>
-  </div>
   <% end %>
 </div>

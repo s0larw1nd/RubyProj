@@ -6,19 +6,19 @@
 
 <div id="books" style="display: flex; flex-wrap: wrap;">
   <% @books.each do |book| %>
-      <div class="book-card">
-        <%= link_to book, style: "width: fit-content" do %>
-        <div>
-          <% if book.cover.attached? %>
-            <%= image_tag book.cover, style: "width: 200px; height: 250px" %>
-          <% else %>
-            <%= image_tag "placeholder.svg", style: "width: 200px; height: 250px" %>
-          <% end %>
-        </div>
-        <h1 class="book-card-info"><%= book.title %></h1>
-        <h2 class="book-card-info"><%= link_to "#{book.author.first_name} #{book.author.last_name}", book.author %></h1>
+    <div class="book-card">
+      <%= link_to book, style: "width: fit-content" do %>
+      <div>
+        <% if book.cover.attached? %>
+          <%= image_tag book.cover, style: "width: 200px; height: 250px" %>
+        <% else %>
+          <%= image_tag "book_placeholder.svg", style: "width: 200px; height: 250px" %>
         <% end %>
       </div>
+      <h1 class="book-card-info"><%= book.title %></h1>
+      <h2 class="book-card-info"><%= link_to "#{book.author.first_name} #{book.author.last_name}", book.author %></h1>
+      <% end %>
+    </div>
   <% end %>
 
   <div class="book-card">

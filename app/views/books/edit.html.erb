@@ -1,12 +1,49 @@
 <% content_for :title, "Editing book" %>
 
-<h1>Editing book</h1>
+<h1>Изменение книги</h1>
 
-<%= render "form", book: @book %>
+<%= form_with(model: @book) do |form| %>
+  <div>
+    <%= form.label "Название", style: "display: block" %>
+    <%= form.text_field :title %>
+  </div>
 
-<br>
+  <div>
+    <%= form.label "Описание", style: "display: block" %>
+    <%= form.textarea :description %>
+  </div>
 
-<div>
-  <%= link_to "Show this book", @book %> |
-  <%= link_to "Back to books", books_path %>
-</div>
+  <div>
+    <%= form.label "Автор", style: "display: block" %>
+    <%= form.text_field :author_id %>
+  </div>
+
+  <div>
+    <%= form.label "Жанр", style: "display: block" %>
+    <%= form.text_field :genre_id %>
+  </div>
+
+  <div>
+    <%= form.label "Год публикации", style: "display: block" %>
+    <%= form.number_field :publication_year %>
+  </div>
+
+  <div>
+    <%= form.label "ISBN", style: "display: block" %>
+    <%= form.number_field :isbn %>
+  </div>
+
+  <div>
+    <%= form.label "Обложка" %>
+    <%= form.file_field :cover %>
+  </div>
+
+  <div>
+    <%= form.label "Текст" %>
+    <%= form.file_field :pdf_file %>
+  </div>
+
+  <div>
+    <%= form.submit "Сохранить изменения" %>
+  </div>
+<% end %>
