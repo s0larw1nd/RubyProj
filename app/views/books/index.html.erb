@@ -1,0 +1,32 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Books" %>
+
+<h1>Books (Книги)</h1>
+
+<div id="books" style="display: flex; flex-wrap: wrap;">
+  <% @books.each do |book| %>
+      <div class="book-card">
+        <%= link_to book, style: "width: fit-content" do %>
+        <div>
+          <% if book.cover.attached? %>
+            <%= image_tag book.cover, style: "width: 200px; height: 250px" %>
+          <% else %>
+            <%= image_tag "placeholder.svg", style: "width: 200px; height: 250px" %>
+          <% end %>
+        </div>
+        <h1 class="book-card-info"><%= book.title %></h1>
+        <h2 class="book-card-info"><%= link_to "#{book.author.first_name} #{book.author.last_name}", book.author %></h1>
+        <% end %>
+      </div>
+  <% end %>
+
+  <div class="book-card">
+    <%= link_to new_book_path, style: "width: fit-content" do %>
+      <div>
+        <%= image_tag "plus.svg", style: "width: 200px; height: 250px" %>
+      </div>
+      <h1 class="book-card-info">Добавить</h1>
+  </div>
+  <% end %>
+</div>

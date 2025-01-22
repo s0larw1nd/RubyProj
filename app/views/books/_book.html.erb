@@ -1,0 +1,42 @@
+<div id="<%= dom_id book %>">
+  <% if @book.pdf_file.attached? %>
+    <%= link_to "Download PDF", rails_blob_path(@book.pdf_file, disposition: "attachment") %>
+  <% end %>
+  <p>
+    <strong>Title:</strong>
+    <%= book.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= book.description %>
+  </p>
+
+  <p>
+    <strong>Author:</strong>
+    <%= book.author_id %>
+  </p>
+
+  <p>
+    <strong>Genre:</strong>
+    <%= book.genre_id %>
+  </p>
+
+  <p>
+    <strong>Publication year:</strong>
+    <%= book.publication_year %>
+  </p>
+
+  <p>
+    <strong>Isbn:</strong>
+    <%= book.isbn %>
+  </p>
+
+  <h2>PDF Content:</h2>
+  <% if @pdf_text.present? %>
+    <pre><%= @pdf_text %></pre> <!-- Выводим текст PDF -->
+  <% else %>
+    <p>No PDF content available.</p>
+  <% end %>
+
+</div>

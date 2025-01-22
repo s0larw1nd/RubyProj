@@ -1,0 +1,26 @@
+<div style="margin-top: 1.3em;">
+  <%= link_to "Главная", books_path, class: "web_path" %> / <%= link_to @book.title, @author, class: "web_path" %>
+</div>
+
+<div style="display:flex; margin-top: 1.5em">
+  <div style='height:auto; width:15%'>
+  <% if @book.cover.attached? %>
+    <%= image_tag @book.cover, class: "book_pcover" %>
+  <% else %>
+    <%= image_tag "placeholder.svg", class: "book_pcover" %>
+  <% end %>
+  </div>
+  <div style="margin-left:3%">
+    <h1><%= @book.title %></h1>
+    <h2>Автор: <%= "#{@book.author.first_name} #{@book.author.last_name} #{@book.author.patronymics}" %></h2>
+    <h3>Год написания: <%= @book.publication_year %> </h3>
+    <h2>О книге</h2>
+    <h3><%= @book.description %></h3>
+    <h2>Жанр: <%= @book.genre.genre_name %> </h2>
+    <h3>ISBN: <%= @book.isbn %> </h3>
+    <%= link_to "Изменить информацию", edit_book_path(@book) %>
+  </div>
+
+  <%= link_to "Читать", read_book_path(@book) if @book.pdf_file.attached? %>
+  <%= link_to "Скачать", rails_blob_path(@book.pdf_file, disposition: "attachment") if @book.pdf_file.attached? %>
+</div>

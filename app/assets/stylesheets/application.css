@@ -85,3 +85,15 @@
     text-decoration: inherit;
     color: black;
 }
+
+.book-card {
+    margin-right: 35px;
+}
+
+.book-card:last-child {
+    margin-right: 0;
+}
+
+.book-card-info {
+    
+}
