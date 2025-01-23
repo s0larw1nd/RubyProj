@@ -1,5 +1,6 @@
 class Author < ApplicationRecord
-  has_many :genre
+  has_many :books
+  
   has_one_attached :photo
 
   validates :first_name, presence: true, length: { minimum: 2, maximum: 15 }, format: { with: /\A[А-Яа-яЁё]+\z/ }
