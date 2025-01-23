@@ -1,5 +1,5 @@
 <div style="margin-top: 1.3em;">
-  <%= link_to "Главная", genres_path, class: "web_path" %> / <%= link_to "Авторы", authors_path, class: "web_path" %> / <%= link_to "#{@author.last_name} #{@author.first_name[0]}.#{@author.patronymics[0]}.", @author, class: "web_path" %> / <span class='web_path'>Изменение</span>
+  <%= link_to "Главная", home_path, class: "web_path" %> / <%= link_to "Авторы", authors_path, class: "web_path" %> / <%= link_to "#{@author.last_name} #{@author.first_name[0]}.#{@author.patronymics[0]}.", @author, class: "web_path" %> / <span class='web_path'>Изменение</span>
 </div>
 
 <% content_for :title, "Изменение автора" %>

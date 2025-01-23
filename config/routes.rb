@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'home#index', as: 'home'
+
   resources :books
   resources :authors
   resources :genres

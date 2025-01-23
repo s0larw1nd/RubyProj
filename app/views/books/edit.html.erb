@@ -1,4 +1,8 @@
-<% content_for :title, "Editing book" %>
+<div style="margin-top: 1.3em;">
+  <%= link_to "Главная", home_path, class: "web_path" %> / <%= link_to "Книги", books_path, class: "web_path" %> / <%= link_to @book.title, @book, class: "web_path" %> / <span class='web_path'>Изменение</span>
+</div>
+
+<% content_for :title, "Изменение книги" %>
 
 <h1>Изменение книги</h1>
 
