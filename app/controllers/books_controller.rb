@@ -21,12 +21,22 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
 
-    if @book.save
-      redirect_to @book, notice: "Book was successfully created."
-    else
+    begin
+      if @book.save
+        redirect_to @book, notice: "Book was successfully created."
+      else
+        @authors = Author.all
+        @genres = Genre.all
+        render :new, status: :unprocessable_entity
+      end
+    rescue ActiveRecord::RecordNotUnique
+      flash[:alert] = "Книга с таким ISBN уже существует."
+      @authors = Author.all
+      @genres = Genre.all
       render :new, status: :unprocessable_entity
     end
   end
+
 
   def update
     if @book.update(book_params)

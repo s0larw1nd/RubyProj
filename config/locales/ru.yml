@@ -1,0 +1,11 @@
+ru:
+  activerecord:
+    attributes:
+      author:
+        first_name: "Имя"
+        last_name: "Фамилия"
+        patronymics: "Отчество"
+        birthdate: "Дата рождения"
+        deathdate: "Дата смерти"
+        nationality: "Национальность"
+        photo: "Фото"

@@ -88,6 +88,8 @@
 
 .book-card {
     margin-right: 35px;
+    color: inherit;
+    text-decoration: inherit;
 }
 
 .book-card:last-child {
@@ -95,7 +97,8 @@
 }
 
 .book-card-info {
-    
+    color: black;
+    text-decoration: none;
 }
 
 .book-btn {

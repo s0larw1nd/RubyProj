@@ -1,4 +1,14 @@
 <%= form_with(model: author) do |form| %>
+  <% if author.errors.any? %>
+    <div id="error_explanation">
+      <h2>Произошло <%= author.errors.count %> ошибок:</h2>
+      <ul>
+        <% author.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div>
     <div>
       <%= form.label "Имя", style: "display: block" %>

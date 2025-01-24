@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_22_072216) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_24_074820) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -46,11 +46,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_22_072216) do
     t.date "birthdate"
     t.date "deathdate"
     t.string "nationality"
-    t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "photo"
-    t.index ["genre_id"], name: "index_authors_on_genre_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -62,9 +59,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_22_072216) do
     t.integer "isbn"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "pdf_file"
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["genre_id"], name: "index_books_on_genre_id"
+    t.index ["isbn"], name: "index_books_on_isbn", unique: true
   end
 
   create_table "genres", force: :cascade do |t|
@@ -76,7 +73,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_22_072216) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "authors", "genres"
   add_foreign_key "books", "authors"
   add_foreign_key "books", "genres"
 end

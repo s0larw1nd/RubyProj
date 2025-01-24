@@ -6,7 +6,7 @@
 
 <h1>Books (Книги)</h1>
 
-<div id="books" style="display: flex; flex-wrap: wrap;">
+<div id="books" style="display: flex; flex-wrap: wrap; color: inherit; text-decoration: inherit;">
   <% @books.each do |book| %>
     <div class="book-card">
       <%= link_to book, style: "width: fit-content" do %>
@@ -18,7 +18,7 @@
         <% end %>
       </div>
       <h1 class="book-card-info"><%= book.title %></h1>
-      <h2 class="book-card-info"><%= link_to "#{book.author.first_name} #{book.author.last_name}", book.author %></h1>
+      <h2 class="book-card-info"><%= link_to "#{book.author.first_name} #{book.author.last_name}", book.author, style:"color: black; text-decoration: none;" %></h1>
       <% end %>
     </div>
   <% end %>
