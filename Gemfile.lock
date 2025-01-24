@@ -184,6 +184,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
+    pg (1.5.9)
     propshaft (1.1.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -355,6 +356,7 @@ DEPENDENCIES
   jbuilder
   kamal
   pdf-reader
+  pg
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.1)
